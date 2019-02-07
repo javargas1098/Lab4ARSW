@@ -2,6 +2,7 @@ package edu.eci.arsw.highlandersim;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -87,7 +88,10 @@ public class ControlFrame extends JFrame {
         JButton btnPauseAndCheck = new JButton("Pause and check");
         btnPauseAndCheck.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
+            	for (Immortal immortal : immortals) {
+            		immortal.pausa();
+					
+				}
                 /*
 				 * COMPLETAR
                  */
@@ -108,6 +112,9 @@ public class ControlFrame extends JFrame {
 
         btnResume.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+            	for (Immortal immortal : immortals) {
+					immortal.resumeGame();
+				}
                 /**
                  * IMPLEMENTAR
                  */
@@ -123,11 +130,22 @@ public class ControlFrame extends JFrame {
         numOfImmortals = new JTextField();
         numOfImmortals.setText("3");
         toolBar.add(numOfImmortals);
-        numOfImmortals.setColumns(10);
+        numOfImmortals.setColumns(1000);
 
         JButton btnStop = new JButton("STOP");
         btnStop.setForeground(Color.RED);
         toolBar.add(btnStop);
+        btnStop.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            	for (Immortal immortal : immortals) {
+					immortal.resumeGame();
+				}
+                /**
+                 * IMPLEMENTAR
+                 */
+
+            }
+        });
 
         scrollPane = new JScrollPane();
         contentPane.add(scrollPane, BorderLayout.CENTER);
