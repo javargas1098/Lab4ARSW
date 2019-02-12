@@ -89,7 +89,7 @@ public class ControlFrame extends JFrame {
         btnPauseAndCheck.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             	for (Immortal immortal : immortals) {
-            		immortal.pausa();
+            		
 					
 				}
                 /*
@@ -97,6 +97,7 @@ public class ControlFrame extends JFrame {
                  */
                 int sum = 0;
                 for (Immortal im : immortals) {
+                	im.pausa();
                     sum += im.getHealth();
                 }
 
@@ -114,6 +115,7 @@ public class ControlFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
             	for (Immortal immortal : immortals) {
 					immortal.resumeGame();
+					
 				}
                 /**
                  * IMPLEMENTAR
