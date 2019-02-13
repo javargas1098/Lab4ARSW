@@ -7,6 +7,14 @@ public class Immortal extends Thread {
 
 	private ImmortalUpdateReportCallback updateCallback = null;
 
+	public boolean isStop() {
+		return stop;
+	}
+
+	public void setStop(boolean stop) {
+		this.stop = stop;
+	}
+
 	private int health;
 
 	private int defaultDamageValue;
@@ -18,6 +26,7 @@ public class Immortal extends Thread {
 	private final Random r = new Random(System.currentTimeMillis());
 	private volatile Boolean isPaused = false;
 	private boolean runningThread = false;
+	private volatile boolean stop = true;
 
 	public Immortal(String name, List<Immortal> immortalsPopulation, int health, int defaultDamageValue,
 			ImmortalUpdateReportCallback ucb) {
@@ -88,21 +97,15 @@ public class Immortal extends Thread {
 
 	public void fight(Immortal i2) {
 		synchronized (updateCallback) {
-			
 
-				if (i2.getHealth() > 0) {
-					i2.changeHealth(i2.getHealth() - defaultDamageValue);
-					this.health += defaultDamageValue;
-					updateCallback.processReport("Fight: " + this + " vs " + i2 + "\n");
-				} else {
-					updateCallback.processReport(this + " says:" + i2 + " is already dead!\n");
-				}
+			if (i2.getHealth() > 0) {
+				i2.changeHealth(i2.getHealth() - defaultDamageValue);
+				this.health += defaultDamageValue;
+				updateCallback.processReport("Fight: " + this + " vs " + i2 + "\n");
+			} else {
+				updateCallback.processReport(this + " says:" + i2 + " is already dead!\n");
 			}
-		
-			
-		
-		
-			
+		}
 
 	}
 
@@ -119,5 +122,8 @@ public class Immortal extends Thread {
 
 		return name + "[" + health + "]";
 	}
+
+
+	
 
 }
