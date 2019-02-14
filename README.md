@@ -1,9 +1,7 @@
 # lab 4
 ## Part l
-I think that  the reason of the CPU consumption is because the program run of   
-asynchronous way this cause that the progam have a elevete CPU execution.
-The class  responsable of that consumption in the consumer because use all   
-resources and  makes the program slow.
+I think that  the reason of the CPU consumption is because the program run of asynchronous way this cause that the progam have a elevete CPU execution.
+The class  responsable of that consumption in the consumer because use all resources and  makes the program slow.
 
  - first execution of the progam
 	fotoo1
