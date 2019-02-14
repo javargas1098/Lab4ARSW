@@ -90,7 +90,7 @@ public class Immortal extends Thread {
 	public void fight(Immortal i2, boolean isAlive) {
 		if (i2.getHealth() > 0) {
 			synchronized (updateCallback) {
-				if ((i2.isAlive && this.isAlive) && i2.getHealth() > 0) {
+				if (i2.isAlive && i2.getHealth() > 0) {
 					i2.changeHealth(i2.getHealth() - defaultDamageValue);
 					if (i2.getHealth() == 0) {
 						i2.isAlive = false;
