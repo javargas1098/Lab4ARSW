@@ -4,12 +4,12 @@ I think that  the reason of the CPU consumption is because the program run of as
 The class  responsable of that consumption in the consumer because use all resources and  makes the program slow.
 
  - first execution of the progam
-![foto](1.png)
+ - ![foto](1.png)
 
 When i change the progam for resolve the problems of the comsumer and producer the CPU consumtion change radicaly 
 
  - Second execution of the progam
-![foto](2.png)
+ - ![foto](2.png)
 ## Part ll
 In the Black list search progam i put a synchronized in the iteration of thread and the progam explore the total of servers in the property way 
  - `Black list search repository`
